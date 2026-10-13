@@ -194,6 +194,7 @@ status_app() {
     fi
   else
     echo -e "${COLOR_RED}● LMS is INACTIVE (Stopped)${COLOR_RESET}"
+    return 1
   fi
 }
 

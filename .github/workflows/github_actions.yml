@@ -24,8 +24,10 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: flash-server
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true   # fail the job as soon as any command fails
           script: |
             cd Development/LMS/
+            echo "Node $(node -v), npm $(npm -v)"
             echo "Pulling latest code from origin main..."
             git pull origin main
 
