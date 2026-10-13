@@ -7,8 +7,8 @@ import path from 'path';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    // Vite blocks unknown Host headers. Allow every *.stepheng753.com host so nginx can proxy to it.
-    allowedHosts: ['.stepheng753.com'],
+    // Vite blocks unknown Host headers. Allow our domains (a leading dot includes subdomains) so nginx can proxy to it.
+    allowedHosts: ['.crossroadstutoring.com', '.stepheng753.com'],
   },
   resolve: {
     alias: {
