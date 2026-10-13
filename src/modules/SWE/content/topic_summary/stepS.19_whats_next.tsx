@@ -91,7 +91,7 @@ export default function StepS_19_WhatsNext() {
         <li><strong>Learn one layer deeper.</strong> Pick the one you enjoyed: frontend design, backend logic, servers, or agents.</li>
         <li><strong>Read other people&apos;s code and docs.</strong> Ask your AI to explain it. This is the fastest way to grow.</li>
         <li><strong>Share and teach.</strong> Explaining something is the best test and builds a reputation.</li>
-        <li><strong>Try the Finance and Valuation track</strong> on the Finance tab of this academy, which teaches the money side of the same journey.</li>
+        <li><strong>Try the Personal Finance track</strong> on the Finance tab of this academy, which teaches the money side of the same journey: debt, taxes, investing, retirement and real estate.</li>
         <li><strong>Keep your toolkit alive.</strong> When you improve a rule or a template, download the new zip and keep it safe.</li>
       </ul>
 

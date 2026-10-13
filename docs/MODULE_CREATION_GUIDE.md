@@ -18,8 +18,7 @@ src/modules/<ModuleName>/
 │   │   └── step2.0_<slug>.tsx
 │   ├── topic_summary/          # lettered stage S: recaps, glossary, references, exams (stepS.N_*.tsx)
 │   └── topic_toolkit/          # lettered stage T: downloads (stepT.N_*.tsx)
-├── toolkit/                    # shared text for saved skills/rules and downloads (SWE only)
-│   ├── tools_setup.ts, tools_fullstack.ts, tools_homelab.ts, tools_apis.ts, tools_agents.ts, registry.ts
+│                               # SWE only: also holds registry.ts and tools/ (the shared toolkit text, tools_*.ts)
 └── index.ts
 ```
 
@@ -147,7 +146,11 @@ The new module will immediately appear on the catalog homepage with its stages a
 
 ## 5. Content Component Reference
 
-All live in `src/components/content/`. Working examples: the SWE steps (for example 1.5 to 1.8) and Finance step 1.2.
+All live in `src/components/content/`. Working examples: the SWE steps (for example 1.5 to 1.8) and the Finance steps (for example 5.6, the paycheck lab).
+
+### Calculators (Finance)
+
+Interactive calculators live in `src/modules/Finance/calculators/`. Each uses the shared frame in `ui.tsx` (`CalcFrame`: presets, inputs, results and a "The math" panel) and pure functions in `calculators/lib/` (`tax.ts`, `paycheck.ts`, `compound.ts`, `mortgage.ts`, `retire.ts`, `roth.ts`, `debt.ts`). Keep every number shown in lessons consistent with those functions: compute the lesson tables from the same code. Tax figures are for 2026 and must be reviewed each year.
 
 | Component | Use it for |
 |---|---|
@@ -172,7 +175,7 @@ All live in `src/components/content/`. Working examples: the SWE steps (for exam
 | `TeachAI` | "Save this as a rule or skill" block for the Antigravity setup in the SWE track: tabs for the Customizations panel or the terminal, the file text, and the copy-to-Agy command |
 | `BigWarning` | A loud red banner for things that can cost real money or cause real harm. Use sparingly |
 | `Flow` | A left-to-right chain of boxes (stacked on a phone) for process diagrams. Long words wrap instead of overflowing |
-| `ToolkitDownloads` | Download hub: single-file buttons plus one browser-built zip. Fed by `src/modules/SWE/toolkit/registry.ts` |
+| `ToolkitDownloads` | Download hub: single-file buttons plus one browser-built zip. Fed by `src/modules/SWE/content/topic_toolkit/registry.ts` (text in `topic_toolkit/tools/`) |
 | `KeyTakeaways` | Summary list at the end of a step |
 
 ---
