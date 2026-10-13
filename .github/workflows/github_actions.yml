@@ -1,0 +1,39 @@
+name: Deploy LMS to Server
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:github-deployer
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: flash-server
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd Development/LMS/
+            echo "Pulling latest code from origin main..."
+            git pull origin main
+
+            echo "Installing dependencies..."
+            npm ci || npm install
+
+            echo "Restarting LMS service..."
+            ./scripts/system.sh --restart
+
+            echo "Verifying LMS service status..."
+            ./scripts/system.sh --status
