@@ -16,8 +16,7 @@ For the reason this project exists, see [PURPOSE.md](PURPOSE.md).
 ├── docs/                         Project documentation
 ├── public/logo.svg               Logo and favicon
 ├── scripts/
-│   ├── system.sh                 Start / stop / restart / status for the dev server
-│   └── generate-file-icons.mjs   Builds the file-tree icon data (see section 6)
+│   └── system.sh                 Start / stop / restart / status for the dev server
 ├── src/
 │   ├── components/
 │   │   ├── common/               Header (navbar + scroll progress), Footer, ProgressBar, Badge
@@ -92,11 +91,9 @@ children so the components keep their own styling. See [MODULE_CREATION_GUIDE.md
 |---|---|
 | `lucide-react` | UI icons |
 | `prismjs` | Syntax highlighting in `CodeBlock` (languages are imported individually in `CodeBlock.tsx`) |
-| `@iconify-json/vscode-icons` (dev) | Source of the file-tree icons |
+| `@iconify-icons/vscode-icons` (dev) | Per-icon files bundled into the file tree |
 
-**File-tree icons:** the full vscode-icons set is 3.8MB, so `scripts/generate-file-icons.mjs` copies only the icons
-we use into `src/components/content/fileIconData.ts` (generated, do not edit). To add one: add its name to the lists
-in the script, map it in `fileIcons.ts`, then run `node scripts/generate-file-icons.mjs`.
+**File-tree icons:** `FileTree.tsx` is self-contained. It uses `import.meta.glob` to bundle only the vscode-icons it lists (about 125 of 1,600), and maps file names, extensions and folder names to icons. To add one, add its name to the glob lists at the top of the file and map it in `FILE_NAMES`, `EXTENSIONS` or `FOLDERS`.
 
 ---
 

@@ -38,7 +38,7 @@ Or manage a background server with the helper script:
 .
 ├── docs/                 Documentation (see below)
 ├── public/               Logo / favicon
-├── scripts/              system.sh, generate-file-icons.mjs
+├── scripts/              system.sh (server start/stop helper)
 ├── src/
 │   ├── components/       common/, content/ (lesson blocks), layout/, ui/
 │   ├── modules/          SWE/, Finance/, and index.ts (the registry)
