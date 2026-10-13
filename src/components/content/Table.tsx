@@ -33,7 +33,7 @@ export const Table: React.FC<TableProps> = ({ headers, rows, caption, align = []
         {rows.map((row, r) => (
           <tr key={r} className="border-t border-border even:bg-muted/30">
             {row.map((cell, c) => (
-              <td key={c} className={`px-4 py-2.5 align-top ${ALIGN[align[c] ?? 'left']}`}>
+              <td key={c} className={`px-4 py-2.5 align-top min-w-[6.5rem] [overflow-wrap:anywhere] ${ALIGN[align[c] ?? 'left']}`}>
                 {cell}
               </td>
             ))}
