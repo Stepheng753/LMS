@@ -14,10 +14,12 @@ src/modules/<ModuleName>/
 │   ├── topic1_<slug>/          # one folder per topic (a stage)
 │   │   ├── step1.0_<slug>.tsx
 │   │   └── step1.1_<slug>.tsx
-│   └── topic2_<slug>/
-│       └── step2.0_<slug>.tsx
+│   ├── topic2_<slug>/
+│   │   └── step2.0_<slug>.tsx
+│   ├── topic_summary/          # lettered stage S: recaps, glossary, references, exams (stepS.N_*.tsx)
+│   └── topic_toolkit/          # lettered stage T: downloads (stepT.N_*.tsx)
 ├── toolkit/                    # shared text for saved skills/rules and downloads (SWE only)
-│   ├── texts.ts, homelabTexts.ts, registry.ts
+│   ├── tools_setup.ts, tools_fullstack.ts, tools_homelab.ts, tools_apis.ts, tools_agents.ts, registry.ts
 └── index.ts
 ```
 
@@ -168,6 +170,8 @@ All live in `src/components/content/`. Working examples: the SWE steps (for exam
 | `Quiz`, `MultiSelectQuiz`, `FillInQuiz` | Knowledge checks |
 | `QuizSet` | Wrap several quizzes to show a combined score |
 | `TeachAI` | "Save this as a rule or skill" block for the Antigravity setup in the SWE track: tabs for the Customizations panel or the terminal, the file text, and the copy-to-Agy command |
+| `BigWarning` | A loud red banner for things that can cost real money or cause real harm. Use sparingly |
+| `Flow` | A left-to-right chain of boxes (stacked on a phone) for process diagrams. Long words wrap instead of overflowing |
 | `ToolkitDownloads` | Download hub: single-file buttons plus one browser-built zip. Fed by `src/modules/SWE/toolkit/registry.ts` |
 | `KeyTakeaways` | Summary list at the end of a step |
 

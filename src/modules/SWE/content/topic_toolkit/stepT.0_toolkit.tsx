@@ -6,11 +6,11 @@ import { ToolkitDownloads } from '../../../../components/content/ToolkitDownload
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
 import { ARTIFACTS, INSTALL_SCRIPT, TOOLKIT_README } from '../../toolkit/registry';
 
-export default function StepF_0_Toolkit() {
+export default function StepT_0_Toolkit() {
   return (
     <div>
       <StepHeader
-        eyebrow="Final • Your Toolkit"
+        eyebrow="Toolkit • Download"
         title="Download Your Toolkit"
         summary="Every rule, skill, template and setting file from this course, ready to download and keep."
       />

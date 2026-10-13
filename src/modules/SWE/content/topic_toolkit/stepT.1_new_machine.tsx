@@ -10,11 +10,11 @@ import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
 import { INSTALL_SCRIPT } from '../../toolkit/registry';
 
-export default function StepF_1_NewMachine() {
+export default function StepT_1_NewMachine() {
   return (
     <div>
       <StepHeader
-        eyebrow="Final • Your Toolkit"
+        eyebrow="Toolkit • Setup"
         title="Setting Up a New Machine"
         summary="Go from a fresh Windows computer to your full setup in minutes, using the toolkit."
       />
@@ -105,6 +105,8 @@ export default function StepF_1_NewMachine() {
           ['A pipeline', 'deploy.yml, and the secrets list in step 3.23'],
           ['A new server', 'Steps 3.6 to 3.11, then the nginx and certificate templates'],
           ['A new self-hosted app', 'The selfhosted-apps skill and its compose example'],
+          ['MCP servers, agents or local models', 'The mcp-servers, agent-safety and local-models skills, the task brief and the agent safety checklist'],
+          ['An app that calls outside APIs', 'The external-apis, google-oauth, llm-providers and social-posting skills, plus the secrets and config templates'],
         ]}
       />
 
