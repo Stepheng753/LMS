@@ -63,12 +63,13 @@ switcher, sidebar, next/previous navigation) is derived from that list.
 
 ```
 Header (sticky, 56px)  — logo · module switcher · scroll-progress line
-├── ModuleSidebar      — all tracks link, module info, progress, stages & steps
+├── ModuleSidebar      — all tracks link, module info, progress, a topic tab row (hidden for single-topic tracks) and the selected topic's steps
 ├── StepViewerLayout   — breadcrumb, mark complete, the lesson, StepNav (prev/next cards)
 └── OnThisPage         — right rail outline of the lesson's sections (screens ≥ 1536px)
 ```
 
 Notable behaviours:
+- **Topic tabs:** each stage is a tab (a short label taken from its title: the number in "Topic 4", or the first letter for "Summary" and "Toolkit", so 1 2 3 4 5 S T). Moving to a step in another topic switches the tab, and a tab can be clicked to browse that topic's steps.
 - **Resizable sidebar:** drag its right edge (240–900px, default 550px). Width is saved in localStorage
   (`lms.sidebarWidth.v3`); double-click the edge to reset.
 - **Mobile:** below the `md` breakpoint the sidebar becomes a slide-in drawer opened by the navbar's "Steps" button.

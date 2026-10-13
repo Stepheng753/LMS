@@ -9,7 +9,7 @@ See [docs/PURPOSE.md](docs/PURPOSE.md).
 ## Features
 
 - **Tracks, stages and steps** loaded from a single registry, with per-stage and per-track progress
-- **Course reader** with a resizable sidebar, section outline ("On this page"), previous/next cards and arrow-key navigation
+- **Course reader** with a resizable sidebar (topic tabs above a vertical step list), section outline ("On this page"), previous/next cards and arrow-key navigation
 - **Rich lesson components:** terminal and code blocks (syntax highlighted), file trees, tables, charts, formulas,
   tabs, callouts, worked examples and several quiz types
 - **Mobile friendly:** the sidebar becomes a slide-in drawer on small screens
