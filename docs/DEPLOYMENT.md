@@ -13,6 +13,57 @@ a private, personal site. If you later want a production build instead, serve `d
 
 ---
 
+## Nginx
+
+nginx terminates HTTPS and proxies to the Vite server on port 5173. This follows the same pattern as the other sites
+on the server (wildcard Let's Encrypt cert, HTTP redirect on 8463). Replace `lms.stepheng753.com` with your hostname.
+
+```nginx
+server {
+    listen 8463;
+    server_name lms.stepheng753.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name lms.stepheng753.com;
+
+    ssl_certificate     /etc/letsencrypt/live/stepheng753.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/stepheng753.com/privkey.pem;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    location / {
+        proxy_pass http://127.0.0.1:5173;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+Setup on the server:
+
+```bash
+sudo nano /etc/nginx/sites-available/lms.stepheng753.com      # paste the config above
+sudo ln -s /etc/nginx/sites-available/lms.stepheng753.com /etc/nginx/sites-enabled/
+sudo nginx -t && ./reload_nginx.sh                              # test, then reload
+```
+
+Also add a DNS record for the hostname (the wildcard certificate already covers any `*.stepheng753.com` name).
+
+`vite.config.ts` sets `server.allowedHosts` to `.stepheng753.com`. Without it, Vite rejects proxied requests with
+"Blocked request. This host is not allowed." Change it if you use a different domain.
+
+---
+
 ## Required GitHub secrets
 
 Add these under **Repository → Settings → Secrets and variables → Actions → New repository secret**.
