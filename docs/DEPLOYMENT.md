@@ -54,7 +54,8 @@ Setup on the server:
 ```bash
 sudo nano /etc/nginx/sites-available/lms.stepheng753.com      # paste the config above
 sudo ln -s /etc/nginx/sites-available/lms.stepheng753.com /etc/nginx/sites-enabled/
-sudo nginx -t && ./reload_nginx.sh                              # test, then reload
+ln -s /etc/nginx/sites-available/lms.stepheng753.com ~/Services/Nginx/lms_nginx_conf.so   # shortcut, like the other sites
+sudo nginx -t && ~/Services/Nginx/reload_nginx.sh               # test, then reload
 ```
 
 Also add a DNS record for the hostname (the wildcard certificate already covers any `*.stepheng753.com` name).
