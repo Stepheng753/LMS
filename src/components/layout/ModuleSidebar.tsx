@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowLeft, CheckCircle2, Circle, Clock } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronRight, Circle, Clock } from 'lucide-react';
 import { ModuleDefinition, StageItem, StepItem } from '../../types/lms';
 import { ProgressBar } from '../common/ProgressBar';
 
@@ -73,6 +73,23 @@ export const ModuleSidebar: React.FC<ModuleSidebarProps> = ({
       window.removeEventListener('pointerup', onUp);
     };
   }, [isDragging]);
+
+  // Only the topic (stage) you are working in stays open; moving to another topic collapses the rest.
+  // Headers can still be clicked to open or close any topic by hand.
+  const activeStageId = module.stages.find((st) => st.steps.some((x) => x.id === activeStep.id))?.id;
+  const [openStages, setOpenStages] = useState<Set<string>>(() => new Set(activeStageId ? [activeStageId] : []));
+
+  useEffect(() => {
+    if (activeStageId) setOpenStages(new Set([activeStageId]));
+  }, [activeStageId]);
+
+  const toggleStage = (id: string) =>
+    setOpenStages((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   const allSteps = module.stages.flatMap((stage) => stage.steps);
   const totalSteps = allSteps.length;
@@ -152,16 +169,32 @@ export const ModuleSidebar: React.FC<ModuleSidebarProps> = ({
       <div className="flex-1 overflow-y-auto p-3 space-y-4">
         {module.stages.map((stage: StageItem) => {
           const stageCompleted = stage.steps.every((s) => completedStepIds.includes(s.id));
+          const stageDone = stage.steps.filter((s) => completedStepIds.includes(s.id)).length;
+          const isOpen = openStages.has(stage.id);
 
           return (
             <div key={stage.id} className="space-y-1.5">
-              <div className="flex items-center justify-between px-2 py-1 text-[13px] font-semibold uppercase tracking-wider text-muted-foreground">
-                <span className="truncate">{stage.title}</span>
-                {stageCompleted && (
+              <button
+                onClick={() => toggleStage(stage.id)}
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between gap-2 px-2 py-1 rounded-md text-[13px] font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary hover:bg-sidebar-accent/40 transition-colors text-left"
+              >
+                <span className="flex items-center gap-1.5 min-w-0">
+                  <ChevronRight
+                    className={`w-4 h-4 shrink-0 text-primary transition-transform ${isOpen ? 'rotate-90' : ''}`}
+                  />
+                  <span className="truncate">{stage.title}</span>
+                </span>
+                {stageCompleted ? (
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                ) : (
+                  <span className="shrink-0 font-mono text-[11px] normal-case tracking-normal">
+                    {stageDone}/{stage.steps.length}
+                  </span>
                 )}
-              </div>
+              </button>
 
+              {isOpen && (
               <div className="space-y-1">
                 {stage.steps.map((step: StepItem) => {
                   const isActive = step.id === activeStep.id;
@@ -219,6 +252,7 @@ export const ModuleSidebar: React.FC<ModuleSidebarProps> = ({
                   );
                 })}
               </div>
+              )}
             </div>
           );
         })}
