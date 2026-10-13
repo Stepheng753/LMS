@@ -11,9 +11,13 @@ Each learning module lives in its own directory under `src/modules/<ModuleName>`
 ```
 src/modules/<ModuleName>/
 ├── content/
-│   ├── step1.0_<slug>.tsx
-│   ├── step1.1_<slug>.tsx
-│   └── step1.2_<slug>.tsx
+│   ├── topic1_<slug>/          # one folder per topic (a stage)
+│   │   ├── step1.0_<slug>.tsx
+│   │   └── step1.1_<slug>.tsx
+│   └── topic2_<slug>/
+│       └── step2.0_<slug>.tsx
+├── toolkit/                    # shared text for saved skills/rules and downloads (SWE only)
+│   ├── texts.ts, homelabTexts.ts, registry.ts
 └── index.ts
 ```
 
@@ -22,18 +26,18 @@ src/modules/<ModuleName>/
 ## 2. Creating a Step Component
 
 Step files are standard React components named using the pattern:  
-`step<stage>.<order>_<description>.tsx` (e.g., `step1.0_bash.tsx`).
+`step<stage>.<order>_<description>.tsx` (e.g., `step1.5_navigating.tsx`).
 
 ### Step Component Template
 
 ```tsx
-import { StepHeader } from '../../../components/content/StepHeader';
-import { Section } from '../../../components/content/Section';
-import { TerminalBlock } from '../../../components/content/TerminalBlock';
-import { CodeBlock } from '../../../components/content/CodeBlock';
-import { Callout } from '../../../components/content/Callout';
-import { Quiz } from '../../../components/content/Quiz';
-import { KeyTakeaways } from '../../../components/content/KeyTakeaways';
+import { StepHeader } from '../../../../components/content/StepHeader';
+import { Section } from '../../../../components/content/Section';
+import { TerminalBlock } from '../../../../components/content/TerminalBlock';
+import { CodeBlock } from '../../../../components/content/CodeBlock';
+import { Callout } from '../../../../components/content/Callout';
+import { Quiz } from '../../../../components/content/Quiz';
+import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
 
 export default function Step1_0_Example() {
   return (
@@ -85,7 +89,7 @@ export default function Step1_0_Example() {
 Create `src/modules/<ModuleName>/index.ts` to organize steps into stages:
 
 ```ts
-import Step1_0_Example from './content/step1.0_example';
+import Step1_0_Example from './content/topic1_example/step1.0_example';
 import { ModuleDefinition } from '../../types/lms';
 
 export const exampleModule: ModuleDefinition = {
@@ -141,7 +145,7 @@ The new module will immediately appear on the catalog homepage with its stages a
 
 ## 5. Content Component Reference
 
-All live in `src/components/content/`. Working examples: the SWE steps (1.0–1.2) and Finance step 1.2.
+All live in `src/components/content/`. Working examples: the SWE steps (for example 1.5 to 1.8) and Finance step 1.2.
 
 | Component | Use it for |
 |---|---|
@@ -163,6 +167,8 @@ All live in `src/components/content/`. Working examples: the SWE steps (1.0–1.
 | `Exercise` | `kind="exercise"` hides the solution, `kind="example"` shows a worked solution |
 | `Quiz`, `MultiSelectQuiz`, `FillInQuiz` | Knowledge checks |
 | `QuizSet` | Wrap several quizzes to show a combined score |
+| `TeachAI` | "Save this as a rule or skill" block for the Antigravity setup in the SWE track: tabs for the Customizations panel or the terminal, the file text, and the copy-to-Agy command |
+| `ToolkitDownloads` | Download hub: single-file buttons plus one browser-built zip. Fed by `src/modules/SWE/toolkit/registry.ts` |
 | `KeyTakeaways` | Summary list at the end of a step |
 
 ---
