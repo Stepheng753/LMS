@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+:root {
+  --card: #f3eee9;
+  --ring: #9b2c2c;
+  --input: #f5e8d2;
+  --muted: #e9e1da;
+  --accent: #fef3c7;
+  --border: #ddd0c1;
+  --radius: 0.375rem;
+  --chart-1: #b91c1c;
+  --chart-2: #9b2c2c;
+  --chart-3: #7f1d1d;
+  --chart-4: #b45309;
+  --chart-5: #92400e;
+  --popover: #faf7f5;
+  --primary: #9b2c2c;
+  --sidebar: #f0ebe8;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --secondary: #fdf2d6;
+  --background: #faf7f5;
+  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --foreground: #1a1a1a;
+  --destructive: #991b1b;
+  --shadow-blur: 16px;
+  --shadow-color: hsl(0 63% 18% / 0.08);
+  --sidebar-ring: #9b2c2c;
+  --shadow-spread: -2px;
+  --sidebar-accent: #fef3c7;
+  --sidebar-border: #f5e8d2;
+  --card-foreground: #1a1a1a;
+  --sidebar-primary: #9b2c2c;
+  --muted-foreground: #57534e;
+  --accent-foreground: #7f1d1d;
+  --popover-foreground: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --secondary-foreground: #805500;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #7f1d1d;
+  --sidebar-primary-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-radius: var(--radius);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-popover: var(--popover);
+  --color-primary: var(--primary);
+  --color-sidebar: var(--sidebar);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-card-foreground: var(--card-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* Base resets & typography */
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom scrollbar: always visible, readable against the cream background */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #c9b8ae var(--muted);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9b8ae;
+  border-radius: 9999px;
+  border: 3px solid var(--muted);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Smooth transitions */
+* {
+  box-sizing: border-box;
+}
+
+/* Luxury card glow */
+.luxury-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px -2px var(--shadow-color);
+  transition: all 0.25s ease-in-out;
+}
+
+.luxury-card:hover {
+  border-color: #d8c29d;
+  box-shadow: 0 10px 28px -4px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+/* Shared step-content typography.
+   Scoped to the step root's direct children so Callout/Quiz/CodeBlock internals are untouched. */
+.lms-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--foreground) 90%, transparent);
+}
+
+.lms-content > div > * + * {
+  margin-top: 1.5rem;
+}
+
+.lms-content > div > h2 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-top: 3rem;
+}
+
+.lms-content > div > h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-top: 2rem;
+}
+
+.lms-content > div > :is(h2, h3) + * {
+  margin-top: 0.875rem;
+}
+
+.lms-content > div > :is(ul, ol) {
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+.lms-content > div > ul { list-style-type: disc; }
+.lms-content > div > ol { list-style-type: decimal; }
+
+.lms-content > div > :is(ul, ol) > li {
+  padding-left: 0.25rem;
+}
+
+.lms-content > div > :is(ul, ol) > li + li {
+  margin-top: 0.5rem;
+}
+
+.lms-content li::marker {
+  color: var(--primary);
+}
+
+.lms-content strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.lms-content a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lms-content :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  font-weight: 500;
+  color: #7f1d1d;
+  background: #f3ebe4;
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+}
+
+/* Interactive controls: pointer cursor everywhere, not-allowed when disabled */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary,
+select:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Syntax highlighting: GitHub dark */
+.lms-code { color: #e6edf3; }
+.lms-code .token.comment,
+.lms-code .token.prolog { color: #8b949e; }
+.lms-code .token.keyword,
+.lms-code .token.atrule { color: #ff7b72; }
+.lms-code .token.string,
+.lms-code .token.char,
+.lms-code .token.regex,
+.lms-code .token.attr-value { color: #a5d6ff; }
+.lms-code .token.number,
+.lms-code .token.boolean,
+.lms-code .token.constant,
+.lms-code .token.property,
+.lms-code .token.attr-name { color: #79c0ff; }
+.lms-code .token.function,
+.lms-code .token.method { color: #d2a8ff; }
+.lms-code .token.class-name,
+.lms-code .token.builtin,
+.lms-code .token.annotation,
+.lms-code .token.variable,
+.lms-code .token.environment { color: #ffa657; }
+.lms-code .token.tag { color: #7ee787; }
+.lms-code .token.operator,
+.lms-code .token.punctuation { color: #e6edf3; }
