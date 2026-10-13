@@ -184,7 +184,9 @@ gh secret set SSH_PRIVATE_KEY    --repo Stepheng753/LMS < ~/.ssh/lms_deploy
 ## Server prerequisites
 
 - The repo cloned at `~/Development/LMS` for the `flash-server` user
-- **Node.js 20 or newer** and npm (Tailwind 4 and Vite will not start on Node 18)
+- **Node.js 20 or newer** (Tailwind 4 will not install or start on Node 18). The project pins Node 22 in `.nvmrc`.
+  Install it with nvm (`nvm install 22`); the deploy script and `system.sh` load nvm themselves, so the system Node can stay
+  as it is for other services.
 - `git pull origin main` works without a prompt (public repo, or a read-only deploy key on the server)
 - `tailscaled` running and the machine online
 
@@ -196,5 +198,5 @@ gh secret set SSH_PRIVATE_KEY    --repo Stepheng753/LMS < ~/.ssh/lms_deploy
 | SSH step times out | ACL doesn't allow the tag to reach port 22, or the server is offline |
 | `Permission denied (publickey)` | Public key not in the server's `authorized_keys`, or the secret is missing its header/footer lines |
 | `git pull` asks for credentials | The server can't read the repo non-interactively |
-| App won't start, `EBADENGINE` warnings | Node is older than 20. Upgrade Node on the server, then re-run the workflow |
+| App won't start, `EBADENGINE` or "Cannot find native binding" | The deploy is running on Node 18. Check that nvm has Node 22 (`nvm ls`) and re-run the workflow |
 | Site not updating | Check `./scripts/system.sh --status` and `logs/system.log` on the server |

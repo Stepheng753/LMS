@@ -16,6 +16,15 @@ LOG_DIR="$PROJECT_ROOT/logs"
 LOG_FILE="$LOG_DIR/system.log"
 DEFAULT_PORT=5173
 
+# Use the Node version from .nvmrc when nvm is installed (non-interactive shells do not load nvm)
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  # shellcheck disable=SC1091
+  . "$HOME/.nvm/nvm.sh" || true
+  pushd "$PROJECT_ROOT" >/dev/null
+  nvm use >/dev/null 2>&1 || true
+  popd >/dev/null
+fi
+
 # Color output definitions
 COLOR_RESET="\033[0m"
 COLOR_BOLD="\033[1m"
