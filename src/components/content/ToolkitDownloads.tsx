@@ -67,7 +67,7 @@ export const ToolkitDownloads: React.FC<ToolkitDownloadsProps> = ({ items, extra
         <div className="min-w-0">
           <p className="font-semibold text-foreground !my-0">Everything in one zip</p>
           <p className="text-sm text-muted-foreground !my-0">
-            {items.length} files, plus an installer script. Built in your browser, nothing is uploaded.
+            {items.length} files{extras.length > 0 ? ', plus an installer script' : ''}. Built in your browser, nothing is uploaded.
           </p>
         </div>
         <button onClick={downloadZip} disabled={busy} className={buttonClass}>
@@ -90,9 +90,11 @@ export const ToolkitDownloads: React.FC<ToolkitDownloadsProps> = ({ items, extra
                     <td className="px-4 py-3 align-top">
                       <p className="font-semibold text-foreground !my-0">{item.title}</p>
                       <p className="text-xs text-muted-foreground !my-0 mt-0.5">{item.description}</p>
-                      <p className="text-xs !my-0 mt-1">
-                        Goes in: <code>{item.installTo}</code>
-                      </p>
+                      {item.installTo && (
+                        <p className="text-xs !my-0 mt-1">
+                          Goes in: <code>{item.installTo}</code>
+                        </p>
+                      )}
                     </td>
                     <td className="px-4 py-3 align-top text-right whitespace-nowrap">
                       <button onClick={() => downloadOne(item)} className={buttonClass}>
