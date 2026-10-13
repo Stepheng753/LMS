@@ -7,7 +7,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Compare } from '../../../../components/content/Compare';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { SPEC_TEMPLATE } from '../../toolkit/texts';
+import { SPEC_TEMPLATE } from '../../toolkit/tools_fullstack';
 
 export default function Step2_9_PlanSpec() {
   return (

@@ -9,7 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { Term } from '../../../../components/content/Term';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { CLOUDFLARE_INI, NGINX_APP_SITE } from '../../toolkit/homelabTexts';
+import { CLOUDFLARE_INI, NGINX_APP_SITE } from '../../toolkit/tools_homelab';
 
 const SSL_PARAMS = `# /etc/nginx/snippets/ssl-params.conf  (optional hardening)
 ssl_protocols TLSv1.2 TLSv1.3;

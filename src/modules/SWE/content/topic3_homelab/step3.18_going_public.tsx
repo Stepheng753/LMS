@@ -8,14 +8,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { Compare } from '../../../../components/content/Compare';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Hop = ({ title, sub }: { title: string; sub: string }) => (
-  <div className="flex-1 min-w-[8rem] rounded-lg border border-border bg-card p-2.5 text-center">
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-[0.7rem] text-muted-foreground mt-0.5 !my-0">{sub}</p>
-  </div>
-);
-const Join = () => <div className="flex items-center justify-center text-primary px-0.5 font-semibold">→</div>;
+import { Flow } from '../../../../components/content/Flow';
 
 export default function Step3_18_GoingPublic() {
   return (
@@ -55,17 +48,15 @@ export default function Step3_18_GoingPublic() {
       />
 
       <Section title="The route a public visitor takes" />
-      <div className="my-4 flex flex-wrap items-stretch gap-1">
-        <Hop title="Visitor" sub="https://pics.example.com" />
-        <Join />
-        <Hop title="Cloudflare DNS" sub="CNAME to your DDNS name" />
-        <Join />
-        <Hop title="Router DDNS" sub="resolves to your current home IP" />
-        <Join />
-        <Hop title="Port forward" sub="443 → server" />
-        <Join />
-        <Hop title="nginx" sub="HTTPS, then routes to the app" />
-      </div>
+      <Flow
+        steps={[
+          { title: 'Visitor', sub: 'https://pics.example.com' },
+          { title: 'Cloudflare DNS', sub: 'CNAME to your DDNS name' },
+          { title: 'Router DDNS', sub: 'resolves to your current home IP' },
+          { title: 'Port forward', sub: '443 → server' },
+          { title: 'nginx', sub: 'HTTPS, then routes to the app' },
+        ]}
+      />
       <p>
         This is exactly how your own FlashServer is built. The extra pieces compared to the private setup are the DDNS
         name, the port forwards and an open firewall.

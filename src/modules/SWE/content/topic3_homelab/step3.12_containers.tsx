@@ -7,13 +7,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { Term } from '../../../../components/content/Term';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Box = ({ title, sub, accent }: { title: string; sub: string; accent?: boolean }) => (
-  <div className={`flex-1 rounded-lg border p-3 text-center ${accent ? 'border-primary/60 bg-card' : 'border-border bg-card'}`}>
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-xs text-muted-foreground mt-1 !my-0">{sub}</p>
-  </div>
-);
+import { Flow } from '../../../../components/content/Flow';
 
 export default function Step3_12_Containers() {
   return (
@@ -42,13 +36,13 @@ export default function Step3_12_Containers() {
           [<strong key="d">Volume</strong>, 'A folder on the real machine that a container is allowed to use', 'A shelf outside the oven where results are kept'],
         ]}
       />
-      <div className="my-5 flex flex-col md:flex-row items-stretch gap-2">
-        <Box title="Dockerfile" sub="the instructions" />
-        <div className="flex items-center justify-center text-primary text-xs font-semibold">build →</div>
-        <Box title="Image" sub="the sealed template" />
-        <div className="flex items-center justify-center text-primary text-xs font-semibold">run →</div>
-        <Box title="Container" sub="the running app" accent />
-      </div>
+      <Flow
+        steps={[
+          { title: 'Dockerfile', sub: 'the instructions' },
+          { title: 'Image', sub: 'the sealed template', via: 'build' },
+          { title: 'Container', sub: 'the running app', accent: true, via: 'run' },
+        ]}
+      />
 
       <Section title="Isolation: a container has its own filesystem" />
       <p>

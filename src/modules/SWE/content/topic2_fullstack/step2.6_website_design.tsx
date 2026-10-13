@@ -10,7 +10,7 @@ import { Term } from '../../../../components/content/Term';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { DESIGN_SKILL } from '../../toolkit/texts';
+import { DESIGN_SKILL } from '../../toolkit/tools_fullstack';
 
 const WIREFRAME_BOX = 'rounded border-2 border-dashed border-primary/50 flex items-center justify-center text-xs font-semibold text-muted-foreground';
 

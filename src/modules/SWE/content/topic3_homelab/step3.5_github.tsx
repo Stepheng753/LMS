@@ -94,6 +94,10 @@ export default function Step3_5_GitHub() {
           { path: '~/Development/taskapp', command: 'git push -u origin main', output: 'Enumerating objects...\nTo github.com:your-username/taskapp.git\n * [new branch]      main -> main' },
         ]}
       />
+      <Callout type="info" title="Do your portfolio too">
+        Your portfolio from Project A is a separate project, so give it its <em>own</em> private repository and push it the
+        same way. In Project C (step 3.25) you will deploy both.
+      </Callout>
       <Callout type="warning" title="Check for secrets BEFORE you push">
         The <code>git ls-files | grep secrets</code> line should print nothing. If it prints{' '}
         <code>secrets.json</code>, stop. Do not push. Ask your AI helper to help you remove it from the commit. Everything

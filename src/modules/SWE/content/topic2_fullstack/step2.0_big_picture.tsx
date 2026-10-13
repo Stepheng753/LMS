@@ -4,21 +4,7 @@ import { Callout } from '../../../../components/content/Callout';
 import { Table } from '../../../../components/content/Table';
 import { Quiz } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Box = ({ title, sub }: { title: string; sub: string }) => (
-  <div className="flex-1 rounded-lg border border-border bg-card p-3 text-center">
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-xs text-muted-foreground mt-1 !my-0">{sub}</p>
-  </div>
-);
-
-const Arrow = ({ label }: { label: string }) => (
-  <div className="flex md:flex-col items-center justify-center gap-1 text-[0.7rem] text-primary font-semibold px-2 py-1">
-    <span>{label}</span>
-    <span className="md:hidden">↓</span>
-    <span className="hidden md:inline">→</span>
-  </div>
-);
+import { Flow } from '../../../../components/content/Flow';
 
 export default function Step2_0_BigPicture() {
   return (
@@ -34,13 +20,13 @@ export default function Step2_0_BigPicture() {
         can see that shape, every later step is just filling in one box.
       </p>
 
-      <div className="my-6 flex flex-col md:flex-row items-stretch gap-1">
-        <Box title="Frontend" sub="What you see and click. Runs in the browser" />
-        <Arrow label="HTTP request" />
-        <Box title="Backend" sub="The rules and logic. Runs on a server" />
-        <Arrow label="reads / writes" />
-        <Box title="Database" sub="Where data is kept for good" />
-      </div>
+      <Flow
+        steps={[
+          { title: 'Frontend', sub: 'What you see and click. Runs in the browser' },
+          { title: 'Backend', sub: 'The rules and logic. Runs on a server', via: 'HTTP request' },
+          { title: 'Database', sub: 'Where data is kept for good', via: 'reads / writes' },
+        ]}
+      />
       <p>
         The answer travels back the same way: the database hands data to the backend, the backend sends it to the
         frontend as <strong>JSON</strong>, and the frontend draws it on screen.

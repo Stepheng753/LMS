@@ -8,7 +8,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { JELLYFIN_COMPOSE, SELFHOSTED_SKILL } from '../../toolkit/homelabTexts';
+import { JELLYFIN_COMPOSE, SELFHOSTED_SKILL } from '../../toolkit/tools_homelab';
 
 const LOCAL_PORT_SITE = `# /etc/nginx/sites-available/jellyfin.example.com
 server {

@@ -9,19 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { Term } from '../../../../components/content/Term';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Box = ({ title, sub }: { title: string; sub: string }) => (
-  <div className="flex-1 min-w-[7.5rem] rounded-lg border border-border bg-card p-2.5 text-center">
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-[0.7rem] text-muted-foreground mt-0.5 !my-0">{sub}</p>
-  </div>
-);
-const Join = ({ label }: { label?: string }) => (
-  <div className="flex flex-col items-center justify-center text-primary px-0.5 font-semibold text-[0.65rem]">
-    {label && <span>{label}</span>}
-    <span>→</span>
-  </div>
-);
+import { Flow } from '../../../../components/content/Flow';
 
 const TAG_POLICY = `{
   "tagOwners": {
@@ -53,17 +41,15 @@ export default function Step3_23_CicdSecrets() {
         ]}
       />
 
-      <div className="my-5 flex flex-wrap items-stretch gap-1">
-        <Box title="You push" sub="git push origin main" />
-        <Join />
-        <Box title="GitHub runner" sub="runs your tests" />
-        <Join label="pass" />
-        <Box title="Tailscale" sub="runner joins your private network" />
-        <Join />
-        <Box title="SSH" sub="into your server" />
-        <Join />
-        <Box title="Server" sub="pull, rebuild, restart" />
-      </div>
+      <Flow
+        steps={[
+          { title: 'You push', sub: 'git push origin main' },
+          { title: 'GitHub runner', sub: 'runs your tests' },
+          { title: 'Tailscale', sub: 'runner joins your private network', via: 'pass' },
+          { title: 'SSH', sub: 'into your server' },
+          { title: 'Server', sub: 'pull, rebuild, restart' },
+        ]}
+      />
 
       <Section title="The puzzle: how does GitHub reach your home?" />
       <p>

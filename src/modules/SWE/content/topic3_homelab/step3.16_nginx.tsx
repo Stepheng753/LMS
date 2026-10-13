@@ -10,7 +10,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { NGINX_PROXY_SKILL } from '../../toolkit/homelabTexts';
+import { NGINX_PROXY_SKILL } from '../../toolkit/tools_homelab';
 
 const HTTP_ONLY_SITE = `# /etc/nginx/sites-available/app.example.com   (HTTP only, for now)
 server {

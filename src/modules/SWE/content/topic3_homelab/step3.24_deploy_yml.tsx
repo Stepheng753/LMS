@@ -9,7 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { CICD_SKILL, DEPLOY_YML } from '../../toolkit/homelabTexts';
+import { CICD_SKILL, DEPLOY_YML } from '../../toolkit/tools_homelab';
 
 const CICD_PROMPT = `/plan
 

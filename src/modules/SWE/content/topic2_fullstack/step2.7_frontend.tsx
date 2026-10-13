@@ -8,7 +8,7 @@ import { Compare } from '../../../../components/content/Compare';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { FRONTEND_SKILL } from '../../toolkit/texts';
+import { FRONTEND_SKILL } from '../../toolkit/tools_fullstack';
 
 export default function Step2_7_Frontend() {
   return (

@@ -1,4 +1,5 @@
 // Topic 3 artifacts: skills, templates and configs for the homelab and pipeline steps.
+// Lessons import from here, and the Toolkit step offers the same text for download.
 // Note: "\${{" below is a literal "${{" (GitHub Actions expression syntax) inside a template string.
 
 export const GIT_WORKFLOW_SKILL = `---
@@ -10,7 +11,7 @@ description: How to use git and GitHub in our projects: the ignore list, small c
 ## Rules
 - There is one branch, main, with a straight-line history. Do not create other branches unless the user asks.
 - Never run git commit or git push on your own. Show what you would commit, propose the message, and wait for the user to say go.
-- Never commit secrets: backend/config/secrets.json, keys, tokens or passwords. If one was ever committed, tell the user straight away. Deleting the file is not enough, because it stays in history. The secret must be replaced.
+- Never commit secrets: backend/config/secrets.json, the Google OAuth files, keys, tokens or passwords. If one was ever committed, tell the user straight away. Deleting the file is not enough, because it stays in history. The secret must be replaced.
 - Commit small. One logical change per commit, with a plain imperative message such as "Add tasks endpoint".
 - Never force-push and never rewrite history on main.
 - Before committing, show git status and a short summary of the changes.
@@ -22,6 +23,7 @@ data/*.db
 logs/
 dist/
 backend/config/secrets.json
+backend/config/google_*.json
 (Also __pycache__/, .DS_Store and any .env file.)
 
 ## The user's shortcuts
@@ -54,7 +56,13 @@ docker compose up -d --build, docker compose down, docker compose logs -f, docke
 
 ## Checks
 - After changes, prove persistence: add data, run docker compose down then up -d, and confirm the data is still there.
-- Never put secrets in a Dockerfile, an image or the compose file.`;
+- Never put secrets in a Dockerfile, an image or the compose file.
+
+## Static frontend-only sites (such as a portfolio)
+- One service, no backend, no data volume and no secrets.
+- Use a multi-stage Dockerfile: build the site with node:22-alpine (npm install, npm run build), then copy dist/ into nginx:alpine, which serves it on port 80 inside the container.
+- Publish it on its own free port as 127.0.0.1:<port>:80 (for example 127.0.0.1:5174:80). A host nginx site for its own hostname proxies to that port.
+- The CI check is a build, not unit tests: docker build ./frontend must succeed before deploying.`;
 
 export const NGINX_PROXY_SKILL = `---
 name: nginx-proxy
@@ -147,6 +155,7 @@ dist/
 # Data and secrets (never share these)
 data/*.db
 backend/config/secrets.json
+backend/config/google_*.json
 .env
 
 # Logs
@@ -610,3 +619,25 @@ project-root/
 8. A frontend-only project (such as a portfolio) uses only README.md, docs/, scripts/ and frontend/, each with its README.md.
 9. Deployment files (docker-compose.yml, the Dockerfiles, .dockerignore files and .github/workflows/deploy.yml) are added only when the project is being containerised or deployed.
 10. Secrets and databases never go into git or into images: backend/config/secrets.json and data/*.db live only on the machine that runs the app.`;
+
+export const STATIC_FRONTEND_DOCKERFILE = `# frontend/Dockerfile  (static site: build it, then serve it with nginx)
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80`;
+
+export const STATIC_COMPOSE = `# docker-compose.yml  (a frontend-only site such as a portfolio)
+services:
+  portfolio:
+    build:
+      context: ./frontend
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5174:80"`;

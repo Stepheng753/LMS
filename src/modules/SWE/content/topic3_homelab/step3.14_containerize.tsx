@@ -18,7 +18,7 @@ import {
   COMPOSE_EXAMPLE,
   DOCKER_DEPLOY_SKILL,
   FRONTEND_DOCKERFILE,
-} from '../../toolkit/homelabTexts';
+} from '../../toolkit/tools_homelab';
 
 const DOCKER_PROMPT = `/plan
 
@@ -65,6 +65,11 @@ export default function Step3_14_Containerize() {
         Topic 2 app so it runs on the server. You are not going to write a Dockerfile, but you need to be able to read one
         and spot problems.
       </p>
+
+      <Callout type="info" title="Your portfolio comes later">
+        This step containerizes your full app. Your portfolio is frontend-only, so it uses a simpler recipe (a static site),
+        which you will do in Project C (step 3.25).
+      </Callout>
 
       <Section title="1. Ask for it" />
       <p>Open your project in Antigravity and use this spec:</p>

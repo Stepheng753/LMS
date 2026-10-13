@@ -8,7 +8,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { NEXTCLOUD_COMPOSE } from '../../toolkit/homelabTexts';
+import { NEXTCLOUD_COMPOSE } from '../../toolkit/tools_homelab';
 
 const NEXTCLOUD_SITE = `# /etc/nginx/sites-available/files.example.com
 server {

@@ -9,15 +9,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { Term } from '../../../../components/content/Term';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Hop = ({ title, sub }: { title: string; sub: string }) => (
-  <div className="flex-1 min-w-[7rem] rounded-lg border border-border bg-card p-2.5 text-center">
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-[0.7rem] text-muted-foreground mt-0.5 !my-0">{sub}</p>
-  </div>
-);
-
-const Join = () => <div className="flex items-center justify-center text-primary px-0.5 font-semibold">→</div>;
+import { Flow } from '../../../../components/content/Flow';
 
 export default function Step3_2_Internet() {
   return (
@@ -61,19 +53,16 @@ export default function Step3_2_Internet() {
       </p>
 
       <Section title="The physical journey" />
-      <div className="my-4 flex flex-wrap items-stretch gap-1">
-        <Hop title="Your device" sub="phone or laptop" />
-        <Join />
-        <Hop title="Wi-Fi or cable" sub="to your router" />
-        <Join />
-        <Hop title="Router" sub="the door of your home network" />
-        <Join />
-        <Hop title="ISP" sub="your internet provider" />
-        <Join />
-        <Hop title="Fibre backbone" sub="light in glass, across cities and oceans" />
-        <Join />
-        <Hop title="Data centre" sub="where the server lives" />
-      </div>
+      <Flow
+        steps={[
+          { title: 'Your device', sub: 'phone or laptop' },
+          { title: 'Wi-Fi or cable', sub: 'to your router' },
+          { title: 'Router', sub: 'the door of your home network' },
+          { title: 'ISP', sub: 'your internet provider' },
+          { title: 'Fibre backbone', sub: 'light in glass, across cities and oceans' },
+          { title: 'Data centre', sub: 'where the server lives' },
+        ]}
+      />
       <p>
         Your data is chopped into small chunks called <Term definition="A small piece of data sent across a network. Big messages are split into many packets and put back together at the other end.">packets</Term>.
         Each packet finds its own route, hopping from one network to the next, like letters travelling through many

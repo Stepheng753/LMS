@@ -12,7 +12,7 @@ import { Term } from '../../../../components/content/Term';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { BACKEND_SKILL, SYSTEM_SKILL_V2 } from '../../toolkit/texts';
+import { BACKEND_SKILL, SYSTEM_SKILL_V2 } from '../../toolkit/tools_fullstack';
 
 export default function Step2_12_Backend() {
   return (

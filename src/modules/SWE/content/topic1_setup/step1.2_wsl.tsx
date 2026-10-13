@@ -7,7 +7,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { WSLCONFIG } from '../../toolkit/texts';
+import { WSLCONFIG } from '../../toolkit/tools_setup';
 
 export default function Step1_2_Wsl() {
   return (

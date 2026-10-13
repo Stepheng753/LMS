@@ -4,21 +4,7 @@ import { Callout } from '../../../../components/content/Callout';
 import { Table } from '../../../../components/content/Table';
 import { Quiz } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-
-const Box = ({ title, sub }: { title: string; sub: string }) => (
-  <div className="flex-1 rounded-lg border border-border bg-card p-3 text-center">
-    <p className="font-semibold text-foreground text-sm !my-0">{title}</p>
-    <p className="text-xs text-muted-foreground mt-1 !my-0">{sub}</p>
-  </div>
-);
-
-const Arrow = ({ label }: { label: string }) => (
-  <div className="flex md:flex-col items-center justify-center gap-1 text-[0.7rem] text-primary font-semibold px-2 py-1">
-    <span>{label}</span>
-    <span className="md:hidden">↓</span>
-    <span className="hidden md:inline">→</span>
-  </div>
-);
+import { Flow } from '../../../../components/content/Flow';
 
 export default function Step3_0_Welcome() {
   return (
@@ -35,15 +21,14 @@ export default function Step3_0_Welcome() {
         website with a proper name and a padlock, running on a machine in your own home.
       </p>
 
-      <div className="my-6 flex flex-col md:flex-row items-stretch gap-1">
-        <Box title="Your laptop" sub="Write the spec, review the plan" />
-        <Arrow label="git push" />
-        <Box title="GitHub" sub="Holds the code, runs the pipeline" />
-        <Arrow label="deploy" />
-        <Box title="Homelab server" sub="Runs the app in containers" />
-        <Arrow label="https" />
-        <Box title="You, anywhere" sub="Phone or computer, via your own domain" />
-      </div>
+      <Flow
+        steps={[
+          { title: 'Your laptop', sub: 'Write the spec, review the plan' },
+          { title: 'GitHub', sub: 'Holds the code, runs the pipeline', via: 'git push' },
+          { title: 'Homelab server', sub: 'Runs the app in containers', via: 'deploy' },
+          { title: 'You, anywhere', sub: 'Phone or computer, via your own domain', via: 'https' },
+        ]}
+      />
 
       <Section title="What you will need" />
       <Table
