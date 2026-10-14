@@ -141,7 +141,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-1',
       title: 'Topic 1: Debt',
-      description: 'Debt',
+      description: 'Why borrowed money costs more than it looks, which debts to destroy first, and a snowball plan to get out.',
       steps: [
         {
           id: 'fin-1-0',
@@ -204,7 +204,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-2',
       title: 'Topic 2: Income & Expenses',
-      description: 'Income & Expenses',
+      description: 'Earn more than you spend: W-2 vs 1099, fixed vs variable money, a budget, an emergency fund and a plan to grow income.',
       steps: [
         {
           id: 'fin-2-0',
@@ -283,7 +283,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-3',
       title: 'Topic 3: Credit Cards',
-      description: 'Credit Cards',
+      description: 'Use a card like a debit card: billing dates, the grace period, rewards, and the credit score behind it all.',
       steps: [
         {
           id: 'fin-3-0',
@@ -354,7 +354,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-4',
       title: 'Topic 4: Taxes',
-      description: 'Taxes',
+      description: 'How brackets really work, federal and California 2026 numbers, deductions, credits, filing status and 1099 tax.',
       steps: [
         {
           id: 'fin-4-0',
@@ -449,7 +449,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-5',
       title: 'Topic 5: Your Paycheck',
-      description: 'Your Paycheck',
+      description: 'Follow a $100,000 California salary from gross to net, line by line, and experiment with every number.',
       steps: [
         {
           id: 'fin-5-0',
@@ -536,7 +536,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-6',
       title: 'Topic 6: Insurance',
-      description: 'Insurance',
+      description: 'Protect what you built: health, auto, home, life, disability and umbrella, and what is not worth buying.',
       steps: [
         {
           id: 'fin-6-0',
@@ -607,7 +607,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-7',
       title: 'Topic 7: Investing Accounts',
-      description: 'Investing Accounts',
+      description: 'Where each dollar goes: the order of operations, 401k, IRA, HSA, Roth vs Traditional, and your S&P 500 strategy.',
       steps: [
         {
           id: 'fin-7-0',
@@ -750,7 +750,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-8',
       title: 'Topic 8: Percentages & Compounding',
-      description: 'Percentages & Compounding',
+      description: 'See money grow year by year, the cost of waiting, inflation, and where the market data comes from.',
       steps: [
         {
           id: 'fin-8-0',
@@ -869,7 +869,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-9',
       title: 'Topic 9: Retirement',
-      description: 'Retirement',
+      description: 'Turn a pile into a paycheck: the 4% approach, how much you need, inflation, and bad early years.',
       steps: [
         {
           id: 'fin-9-0',
@@ -956,7 +956,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-10',
       title: 'Topic 10: Real Estate',
-      description: 'Real Estate',
+      description: 'The true cost of owning a $500,000 San Diego condo, mortgage math, property tax and rental income.',
       steps: [
         {
           id: 'fin-10-0',
@@ -1067,7 +1067,7 @@ export const financeModule: ModuleDefinition = {
     {
       id: 'finance-stage-11',
       title: 'Topic 11: Businesses',
-      description: 'Businesses',
+      description: 'A light guide to sole proprietor, LLC, S-corp and C-corp, and when each one makes sense.',
       steps: [
         {
           id: 'fin-11-0',
