@@ -1,8 +1,8 @@
-import * as S from './tools_setup';
-import * as F from './tools_fullstack';
-import * as H from './tools_homelab';
-import * as A from './tools_apis';
-import * as G from './tools_agents';
+import * as S from './tools/tools_setup';
+import * as F from './tools/tools_fullstack';
+import * as H from './tools/tools_homelab';
+import * as A from './tools/tools_apis';
+import * as G from './tools/tools_agents';
 
 export interface Artifact {
   id: string;

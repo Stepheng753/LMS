@@ -4,7 +4,7 @@ import { Callout } from '../../../../components/content/Callout';
 import { Table } from '../../../../components/content/Table';
 import { ToolkitDownloads } from '../../../../components/content/ToolkitDownloads';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { ARTIFACTS, INSTALL_SCRIPT, TOOLKIT_README } from '../../toolkit/registry';
+import { ARTIFACTS, INSTALL_SCRIPT, TOOLKIT_README } from './registry';
 
 export default function StepT_0_Toolkit() {
   return (

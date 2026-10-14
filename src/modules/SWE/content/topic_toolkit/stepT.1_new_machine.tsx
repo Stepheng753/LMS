@@ -8,7 +8,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { INSTALL_SCRIPT } from '../../toolkit/registry';
+import { INSTALL_SCRIPT } from './registry';
 
 export default function StepT_1_NewMachine() {
   return (
