@@ -7,7 +7,7 @@ import { Compare } from '../../../../components/content/Compare';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { STACK_RULE } from '../../toolkit/tools_fullstack';
+import { STACK_RULE } from '../topic_toolkit/tools/tools_fullstack';
 
 const EXAMPLE_SKILL = `---
 name: pr-checklist

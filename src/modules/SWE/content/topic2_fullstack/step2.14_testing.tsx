@@ -9,7 +9,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { TESTING_SKILL } from '../../toolkit/tools_fullstack';
+import { TESTING_SKILL } from '../topic_toolkit/tools/tools_fullstack';
 
 export default function Step2_14_Testing() {
   return (

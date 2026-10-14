@@ -8,7 +8,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { ALIASES } from '../../toolkit/tools_setup';
+import { ALIASES } from '../topic_toolkit/tools/tools_setup';
 
 export default function Step1_10_Aliases() {
   return (
