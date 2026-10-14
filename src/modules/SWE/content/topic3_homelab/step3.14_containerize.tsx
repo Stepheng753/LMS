@@ -18,7 +18,7 @@ import {
   COMPOSE_EXAMPLE,
   DOCKER_DEPLOY_SKILL,
   FRONTEND_DOCKERFILE,
-} from '../../toolkit/tools_homelab';
+} from '../topic_toolkit/tools/tools_homelab';
 
 const DOCKER_PROMPT = `/plan
 

@@ -6,7 +6,7 @@ import { CodeBlock } from '../../../../components/content/CodeBlock';
 import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { STATIC_COMPOSE, STATIC_FRONTEND_DOCKERFILE } from '../../toolkit/tools_homelab';
+import { STATIC_COMPOSE, STATIC_FRONTEND_DOCKERFILE } from '../topic_toolkit/tools/tools_homelab';
 
 const PORTFOLIO_PROMPT = `/plan
 

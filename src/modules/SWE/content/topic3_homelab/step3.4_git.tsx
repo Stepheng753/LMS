@@ -11,7 +11,7 @@ import { Compare } from '../../../../components/content/Compare';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { GITIGNORE_TEMPLATE, GIT_WORKFLOW_SKILL } from '../../toolkit/tools_homelab';
+import { GITIGNORE_TEMPLATE, GIT_WORKFLOW_SKILL } from '../topic_toolkit/tools/tools_homelab';
 
 export default function Step3_4_Git() {
   return (

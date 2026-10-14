@@ -8,7 +8,7 @@ import { CommandTable } from '../../../../components/content/CommandTable';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { SSH_CONFIG } from '../../toolkit/tools_homelab';
+import { SSH_CONFIG } from '../topic_toolkit/tools/tools_homelab';
 
 export default function Step3_8_Ssh() {
   return (
