@@ -8,7 +8,7 @@ import { TerminalBlock } from '../../../../components/content/TerminalBlock';
 import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { ASSISTANT_BRIEF } from '../../toolkit/tools_agents';
+import { ASSISTANT_BRIEF } from '../topic_toolkit/tools/tools_agents';
 
 export default function Step5_13_Project() {
   return (

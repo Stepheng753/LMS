@@ -9,7 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { LOCAL_MODELS_SKILL, OLLAMA_ADAPTER_SPEC } from '../../toolkit/tools_agents';
+import { LOCAL_MODELS_SKILL, OLLAMA_ADAPTER_SPEC } from '../topic_toolkit/tools/tools_agents';
 
 export default function Step5_9_LocalModel() {
   return (

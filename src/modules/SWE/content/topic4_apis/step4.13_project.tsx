@@ -8,7 +8,7 @@ import { TerminalBlock } from '../../../../components/content/TerminalBlock';
 import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { SECRETS_EXAMPLE } from '../../toolkit/tools_apis';
+import { SECRETS_EXAMPLE } from '../topic_toolkit/tools/tools_apis';
 
 export default function Step4_13_Project() {
   return (

@@ -9,7 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { GOOGLE_OAUTH_SKILL, SHEET_TEMPLATE } from '../../toolkit/tools_apis';
+import { GOOGLE_OAUTH_SKILL, SHEET_TEMPLATE } from '../topic_toolkit/tools/tools_apis';
 
 const LAB_SPEC = `/plan
 

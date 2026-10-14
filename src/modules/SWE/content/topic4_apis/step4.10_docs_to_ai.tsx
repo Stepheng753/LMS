@@ -12,7 +12,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { ARCH_SKILL_V3, EXTERNAL_APIS_SKILL } from '../../toolkit/tools_apis';
+import { ARCH_SKILL_V3, EXTERNAL_APIS_SKILL } from '../topic_toolkit/tools/tools_apis';
 
 const LIVE_DATA_SNIPPET = `weather = fetch_json(row.data_url, timeout=10)
 

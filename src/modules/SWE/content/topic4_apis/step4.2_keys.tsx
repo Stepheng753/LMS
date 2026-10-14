@@ -8,7 +8,7 @@ import { Compare } from '../../../../components/content/Compare';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { SECRETS_EXAMPLE } from '../../toolkit/tools_apis';
+import { SECRETS_EXAMPLE } from '../topic_toolkit/tools/tools_apis';
 
 export default function Step4_2_Keys() {
   return (

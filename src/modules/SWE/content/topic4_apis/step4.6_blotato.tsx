@@ -11,7 +11,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { SOCIAL_POSTING_SKILL } from '../../toolkit/tools_apis';
+import { SOCIAL_POSTING_SKILL } from '../topic_toolkit/tools/tools_apis';
 
 const BLUESKY_BODY = `{
   "post": {

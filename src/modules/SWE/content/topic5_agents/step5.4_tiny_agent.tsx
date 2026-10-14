@@ -10,7 +10,7 @@ import { Exercise } from '../../../../components/content/Exercise';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { AGENT_LAB_SPEC, AGENT_SAFETY_SKILL } from '../../toolkit/tools_agents';
+import { AGENT_LAB_SPEC, AGENT_SAFETY_SKILL } from '../topic_toolkit/tools/tools_agents';
 
 const LOOP = `messages = [{"role": "user", "content": task}]
 

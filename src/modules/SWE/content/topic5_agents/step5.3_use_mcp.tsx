@@ -9,7 +9,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { TeachAI } from '../../../../components/content/TeachAI';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { ANTIGRAVITY_MCP_CONFIG, MCP_SERVERS_SKILL } from '../../toolkit/tools_agents';
+import { ANTIGRAVITY_MCP_CONFIG, MCP_SERVERS_SKILL } from '../topic_toolkit/tools/tools_agents';
 
 const TRAP = `Shopping list
 - milk

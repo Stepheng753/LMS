@@ -9,7 +9,7 @@ import { Steps } from '../../../../components/content/Steps';
 import { Collapsible } from '../../../../components/content/Collapsible';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { HERMES_CONFIG_EXAMPLE, HERMES_ENV_EXAMPLE } from '../../toolkit/tools_agents';
+import { HERMES_CONFIG_EXAMPLE, HERMES_ENV_EXAMPLE } from '../topic_toolkit/tools/tools_agents';
 
 const TRAP = `Meeting notes
 - Discuss the budget on Friday

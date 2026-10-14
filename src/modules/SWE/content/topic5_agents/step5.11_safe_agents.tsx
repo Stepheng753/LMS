@@ -8,7 +8,7 @@ import { Collapsible } from '../../../../components/content/Collapsible';
 import { Exercise } from '../../../../components/content/Exercise';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { AGENT_SAFETY_CHECKLIST } from '../../toolkit/tools_agents';
+import { AGENT_SAFETY_CHECKLIST } from '../topic_toolkit/tools/tools_agents';
 
 export default function Step5_11_SafeAgents() {
   return (

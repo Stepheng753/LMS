@@ -7,7 +7,7 @@ import { Flow } from '../../../../components/content/Flow';
 import { Exercise } from '../../../../components/content/Exercise';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { DAILY_POSTER_SPEC, SHEET_TEMPLATE } from '../../toolkit/tools_apis';
+import { DAILY_POSTER_SPEC, SHEET_TEMPLATE } from '../topic_toolkit/tools/tools_apis';
 
 export default function Step4_12_Design() {
   return (

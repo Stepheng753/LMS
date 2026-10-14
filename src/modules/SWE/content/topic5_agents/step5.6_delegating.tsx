@@ -8,7 +8,7 @@ import { Compare } from '../../../../components/content/Compare';
 import { Exercise } from '../../../../components/content/Exercise';
 import { Quiz, QuizSet } from '../../../../components/content/Quiz';
 import { KeyTakeaways } from '../../../../components/content/KeyTakeaways';
-import { TASK_BRIEF_TEMPLATE } from '../../toolkit/tools_agents';
+import { TASK_BRIEF_TEMPLATE } from '../topic_toolkit/tools/tools_agents';
 
 export default function Step5_6_Delegating() {
   return (
